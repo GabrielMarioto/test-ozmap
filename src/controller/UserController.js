@@ -11,6 +11,8 @@ exports.createUser = async (ctx) => {
         ctx.response.status = StatusCodes.BAD_REQUEST;
         ctx.response.message = 'Age must be above 18';
     } else {
-    
+        await user.create();
+        ctx.response.status = StatusCodes.CREATED;
+        ctx.response.message = 'User created successfully';
     }
 }

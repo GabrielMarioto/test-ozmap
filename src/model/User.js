@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema
 ({
-    id: { type: Number, required: true },
+    id: { type: String, required: true },
     name: { type: String, required: true },
     email: { type: String, required: true },
     age: { type: Number, required: true },
@@ -27,7 +27,7 @@ class User{
     }
 
     async create() {
-        await UserModel.create(this.User);
+        await UserModel.create(this);
     }
 }
 
