@@ -19,6 +19,21 @@ exports.createUser = async (ctx) => {
 
 exports.getUsers = async (ctx) => {
     const allUsers = await User.getAll();
+
     ctx.response.body = allUsers;
     ctx.response.status = StatusCodes.ACCEPTED;
+};
+
+exports.deleteUser = async (ctx) => {
+    const { name } = ctx.request.params;
+
+    const index = await User.delete(name);
+
+    if (!index) {
+        ctx.response.status = StatusCodes.BAD_REQUEST;
+        ctx.response.message = 'User not found';
+    } else {
+        ctx.response.status = StatusCodes.ACCEPTED;
+        ctx.response.message = 'User deleted successfully';
+    }
 }

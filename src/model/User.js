@@ -33,6 +33,10 @@ class User{
     static async getAll() {
         return await UserModel.find();
     }
+
+    static async delete(name) {
+        return await UserModel.findOneAndDelete({ name: name });
+    }
 }
 
 module.exports = { User };

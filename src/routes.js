@@ -13,4 +13,6 @@ router.get('/users', userController.getUsers );
 
 router.post('/users', koaBody, userController.createUser);
 
+router.delete('/users/:name', koaBody, userController.deleteUser);
+
 module.exports = router;
