@@ -27,13 +27,29 @@ exports.getUsers = async (ctx) => {
 exports.deleteUser = async (ctx) => {
     const { name } = ctx.request.params;
 
-    const index = await User.delete(name);
+    const user = await User.delete(name);
 
-    if (!index) {
+    if (!user) {
         ctx.response.status = StatusCodes.BAD_REQUEST;
         ctx.response.message = 'User not found';
     } else {
         ctx.response.status = StatusCodes.ACCEPTED;
         ctx.response.message = 'User deleted successfully';
     }
-}
+};
+
+exports.editUser = async (ctx) => {
+    const { nameParams } = ctx.request.params;    
+    const { name, age, cpf, email } = ctx.request.body;
+
+    const user = new User(name, age, cpf, email).edit(nameParams);
+    
+    if (!user) {
+        ctx.response.status = StatusCodes.BAD_REQUEST;
+        ctx.response.message = 'User not found';
+    } else {
+        ctx.response.status = StatusCodes.ACCEPTED;
+        ctx.response.message = 'User changed successfully';
+    }
+
+};
