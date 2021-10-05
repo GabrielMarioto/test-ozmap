@@ -9,7 +9,7 @@ router.get('/', async (ctx) => {
     ctx.body = `Seu servidor esta rodando em http://localhost:3000`;
 });
 
-router.get('/users' );
+router.get('/users', userController.getUsers );
 
 router.post('/users', koaBody, userController.createUser);
 

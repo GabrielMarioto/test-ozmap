@@ -15,4 +15,10 @@ exports.createUser = async (ctx) => {
         ctx.response.status = StatusCodes.CREATED;
         ctx.response.message = 'User created successfully';
     }
+};
+
+exports.getUsers = async (ctx) => {
+    const allUsers = await User.getAll();
+    ctx.response.body = allUsers;
+    ctx.response.status = StatusCodes.ACCEPTED;
 }

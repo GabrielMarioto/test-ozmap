@@ -29,6 +29,10 @@ class User{
     async create() {
         await UserModel.create(this);
     }
+
+    static async getAll() {
+        return await UserModel.find();
+    }
 }
 
 module.exports = { User };
