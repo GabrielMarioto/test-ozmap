@@ -17,4 +17,9 @@ router.delete('/users/:name', koaBody, userController.deleteUser);
 
 router.put('/users/:nameParams', koaBody, userController.editUser);
 
+router.get('/users/:name', koaBody, userController.getByName);
+
+// router.get('/user/:id', koaBody, userController.getById); Rota desativada pois para funcionar era necessario alterar a rota inicial.
+
+
 module.exports = router;

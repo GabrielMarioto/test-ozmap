@@ -53,3 +53,33 @@ exports.editUser = async (ctx) => {
     }
 
 };
+
+exports.getByName = async (ctx) => {
+    const { name } = ctx.request.params;
+
+    const user = await User.getByName(name);
+
+    if (!user) {
+        ctx.response.status = StatusCodes.BAD_REQUEST;
+        ctx.response.message = 'User not found';
+    } else {
+        ctx.response.body = user;
+        ctx.response.status = StatusCodes.ACCEPTED;
+    }
+   
+}
+
+exports.getById = async (ctx) => {
+    const { id } = ctx.request.params;
+
+    console.log(id);
+    const user = await User.getById(id);
+
+    if (!user) {
+        ctx.response.status = StatusCodes.BAD_REQUEST;
+        ctx.response.message = 'User not found';
+    } else {
+        ctx.response.body = user;
+        ctx.response.status = StatusCodes.ACCEPTED;
+    }
+}

@@ -41,6 +41,14 @@ class User{
     async edit(name) {
         return await UserModel.findOneAndUpdate({name: name}, this);
     }
+
+    static async getByName(name) {
+        return await UserModel.find({ name: name });
+    }
+
+    static async getById(id) {
+        return await UserModel.findById({_id: id});
+    }
 }
 
 module.exports = { User };
