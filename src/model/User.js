@@ -10,8 +10,7 @@ const UserSchema = new mongoose.Schema
     cpf: { type: String, required: true },
 });
 
-const UsuarioModel = mongoose.model('Usuario', UserSchema);
-
+const UserModel = mongoose.model('User', UserSchema);
 class User{
     id;
     name;
@@ -25,6 +24,10 @@ class User{
         this.email = email;
         this.age = age;
         this.cpf = cpf;
+    }
+
+    async create() {
+        await UserModel.create(this.User);
     }
 }
 
