@@ -18,7 +18,7 @@ class User{
     age;
     cpf;
 
-    constructor(name, age, cpf, email){
+    constructor(name, email, age, cpf){
     //     this.id = uuidv4();
         this.name = name;
         this.email = email;
@@ -47,7 +47,8 @@ class User{
     }
 
     static async getById(id) {
-        return await UserModel.findById({_id: id});
+        const user = await UserModel.findById({ _id: id });
+        return user !== null ? user : null;
     }
 }
 
