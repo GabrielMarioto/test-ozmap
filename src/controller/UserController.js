@@ -21,7 +21,7 @@ exports.getUsers = async (ctx) => {
     const allUsers = await User.getAll();
 
     ctx.response.body = allUsers;
-    ctx.response.status = StatusCodes.ACCEPTED;
+    ctx.response.status = StatusCodes.OK;
 };
 
 exports.deleteUser = async (ctx) => {
@@ -33,7 +33,7 @@ exports.deleteUser = async (ctx) => {
         ctx.response.status = StatusCodes.BAD_REQUEST;
         ctx.response.message = 'User not found';
     } else {
-        ctx.response.status = StatusCodes.ACCEPTED;
+        ctx.response.status = StatusCodes.OK;
         ctx.response.message = 'User deleted successfully';
     }
 };
@@ -42,15 +42,23 @@ exports.editUser = async (ctx) => {
     const { nameParams } = ctx.request.params;    
     const { name, age, cpf, email } = ctx.request.body;
 
-    const user = new User(name, age, cpf, email).edit(nameParams);
-    
-    if (!user) {
+    if (age < 18) {
         ctx.response.status = StatusCodes.BAD_REQUEST;
-        ctx.response.message = 'User not found';
+        ctx.response.message = 'Age must be above 18';
+        
     } else {
-        ctx.response.status = StatusCodes.ACCEPTED;
-        ctx.response.message = 'User changed successfully';
+
+        const user = new User(name, age, cpf, email).edit(nameParams);
+    
+        if (!user) {
+            ctx.response.status = StatusCodes.BAD_REQUEST;
+            ctx.response.message = 'User not found';
+        } else {
+            ctx.response.status = StatusCodes.OK;
+            ctx.response.message = 'User changed successfully';
+        }
     }
+    
 
 };
 
@@ -64,7 +72,7 @@ exports.getByName = async (ctx) => {
         ctx.response.message = 'User not found';
     } else {
         ctx.response.body = user;
-        ctx.response.status = StatusCodes.ACCEPTED;
+        ctx.response.status = StatusCodes.OK;
     }
    
 }

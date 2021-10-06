@@ -1,0 +1,177 @@
+openapi: 3.0.3
+info:
+  title: Teste OZMAP
+  description: Documentação do Teste OZMAP
+  contact:
+    name: API Support
+    url: https://localhost:3000/support
+    email: camilomarioto@hotmail.com
+  version: 1.0.0
+servers:
+  - url: https://localhost:3000
+    description: Caminho para rodar a API
+    variables:
+      basePath:
+        default: /api/v1
+tags:
+  - name: user
+    description: Operações do Usuario.
+paths:
+  /users:
+    get:
+      tags:
+        - user
+      responses:
+        '200':
+          description: Retorna todos os usuários cadastrados.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllUsers'
+              examples:
+                objectExample:
+                  $ref: '#/components/examples/getAllExample'
+    post:
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users'
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+        '400':
+          description: Age must be above 18
+  /users/{name}:
+    get:
+      tags:
+        - user
+      parameters:
+        - in: path
+          description: O nome tem que ser no formato string sem acentos.
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retorna todos usuarios com o nome passado por parametro.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+        '400':
+          description: User not found
+    delete:
+      tags:
+        - user
+      parameters:
+        - in: path
+          description: O nome tem que ser no formato string sem acentos.
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User deleted successfully
+        '400':
+          description: User not found
+  /users/{nameParams}:
+    put:
+      tags:
+        - user
+      description: Alterar o usuario.
+      parameters:
+        - in: path
+          description: O nome tem que ser no formato string sem acentos
+          name: nameParams
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users'
+      responses:
+        '200':
+          description: User changed successfully
+        '400':
+          description: User not found
+components:
+  schemas:
+    users:
+      type: object
+      required:
+        - id
+        - name
+        - cpf
+        - email
+        - age
+      properties:
+        _id:
+          description: >-
+            ID do usuario, é inserido automaticamente ao inserir um usuario no
+            banco
+          type: string
+          example: 615ce7b9abdf68d6a3f173e2
+        name:
+          description: Nome do usuario
+          type: string
+          example: Gabriel Marioto
+        cpf:
+          description: CPF do usuario
+          type: string
+          example: '43639238818'
+        email:
+          description: Email do usuario
+          type: string
+          example: camilomarioto@hotmail.com
+        age:
+          description: Idade do usuario, deve ser maior de 18 anos
+          type: number
+          example: '22'
+    getAllUsers:
+      type: array
+      description: Array contendo todos os usuarios cadastrados
+      items:
+        type: object
+  examples:
+    userExample:
+      value:
+        _id: 615ce7b9abdf68d6a3f173e2
+        name: Gabriel Marioto
+        cpf: '43639238818'
+        email: camilomarioto@hotmail.com
+        age: '22'
+    getAllExample:
+      value:
+        - _id: 615ce79eabdf68d6a3f173de
+          name: Paola
+          email: test@test
+          age: 25
+          cpf: '123321123'
+        - _id: 615ce7adabdf68d6a3f173e0
+          name: Gabriel
+          email: test@test
+          age: 22
+          cpf: '43639238818'
+        - _id: 615ce7b9abdf68d6a3f173e2
+          name: Raupp
+          email: test@test
+          age: 38
+          cpf: '9381892931'
+        - _id: 615ce7c5abdf68d6a3f173e4
+          name: Amanda
+          email: test@test
+          age: 20
+          cpf: '975259000'

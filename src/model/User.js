@@ -18,7 +18,7 @@ class User{
     age;
     cpf;
 
-    constructor(name, email, age, cpf){
+    constructor(name, age, cpf, email){
     //     this.id = uuidv4();
         this.name = name;
         this.email = email;
