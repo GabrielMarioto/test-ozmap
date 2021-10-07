@@ -23,8 +23,7 @@ Pasta destinada ao back-end da aplicação, possui as rotas, tests, documentaç�
 ### Testes: Mocha/Chai
 
 > cd server <br>
-> npm test <br> 
-
+> npm test <br>
 
 ### Banco: MongoDB
 
@@ -35,23 +34,26 @@ Yup foi utilizado para fazer validações dos dados inseridos no cadastro. <br>
 
 # Como Usar
 
-> cd cliente <br>
+> cd server <br>
 > npm i <br>
 
 Esperar baixar todas as dependencias e após baixar tudo execute <br>
+
+Caso queira realizar os testes da aplicação, digite <br>
+
+> npm test <br>
+
+Caso queira startar o back-end, digite <br>
 
 > npm start <br>
 
 Em <strong>outro</strong> terminal, digite <br>
 
-> cd server <br>
+> cd client <br>
 > npm i <br>
 
 Esperar baixar todas as dependencias e após baixar tudo execute <br>
 
 > npm start <br>
 
-Caso queira realizar os testes da aplicação, digite <br>
-
-> cd server <br>
-> npm test
+###
