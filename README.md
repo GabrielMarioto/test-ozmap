@@ -1,24 +1,51 @@
-# Teste OZMAP
+# Test OZMap
 
-## TESTE
+## Client
 
-O objetivo do projeto é, usando o NodeJs, Koa, Mocha e Chai, fazer uma API que permita:
-Adicionar, Editar, Lista e Remover Usuários.
-Como bônus, a lista de usuário pode permitir paginação. (Não é necessário, é bônus)
-O projeto base já possui boa parte da implementação pronta, incluindo alguns testes de unidade.
-Não é necessário conexão com nenhuma base de dados, tudo pode rodar em memória.
-Como bônus, pode ser adicionado suporte ao banco de dados sqlite. (Não é necessário, é bônus)
+Pasta destinada ao front-end da aplicação, possui o formulário de CRUD e listágem do Usuário.
 
-Para rodar o projeto base:
+## Server
 
-1 - download do anexo do email, descompacte em algum lugar de facil acesso <br>
-2 - instale os pacotes do node: npm install <br>
-3 - rode os testes de unindade: npm test <br>
-3 - rode o projeto: npm run dev <br>
+Pasta destinada ao back-end da aplicação, possui as rotas, tests, documentação e validações das informaçoes passadas através do front-end.
 
-Não é necessário nenhuma interface grafica para este projeto. Tudo será testado via unit test, ou seja, você deverá implementar mais unit tests, usando o arquivo: /test/index.js antes ou após implementar a API em sí.
-Como bonus, pode ser criada uma interface básica em HTML5. (Não é necessário, é bônus).
-Como bonus 2, poderá ser adicionado uma documentação da api, usando open-api3 ou swagger: https://editor.swagger.io/
+### Front-End: ReactJs
 
-PS: O projeto base pode/deve ser alterado para uma melhor estrutura, especialmente se for adicionar controllers e banco de dados (sugiro sqlite3).
-Podem ser adicionados novos pacotes/bibliotecas npm (porem, não pode substituir os já existentes)
+> cd cliente <br>
+> npm i <br>
+> npm start <br>
+
+### Back-End: NodeJs
+
+> cd server <br>
+> npm i <br>
+> npm start
+
+### Banco: MongoDB
+
+#
+
+Foi utilizado o Axios para realizar a comunicação das API front e back-end. <br>
+Yup foi utilizado para fazer validações dos dados inseridos no cadastro. <br>
+
+# Como Usar
+
+> cd cliente <br>
+> npm i <br>
+
+Esperar baixar todas as dependencias e após baixar tudo execute <br>
+
+> npm start <br>
+
+Em <strong>outro</strong> terminal, digite <br>
+
+> cd server <br>
+> npm i <br>
+
+Esperar baixar todas as dependencias e após baixar tudo execute <br>
+
+> npm start <br>
+
+Caso queira realizar os testes da aplicação, digite <br>
+
+> cd server <br>
+> npm test
