@@ -14,11 +14,17 @@ Pasta destinada ao back-end da aplicação, possui as rotas, tests, documentaç�
 > npm i <br>
 > npm start <br>
 
-### Back-End: NodeJs
+### Back-End: NodeJs + KoaJs
 
 > cd server <br>
 > npm i <br>
 > npm start
+
+### Testes: Mocha/Chai
+
+> cd server <br>
+> npm test <br> 
+
 
 ### Banco: MongoDB
 
