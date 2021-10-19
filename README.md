@@ -21,10 +21,10 @@
 ---
 
 <p align="center">
- <a href="#-teste">Teste</a> | 
- <a href="#-informacoes">Informações</a> | 
- <a href="#-pre-requisitos">Pré-Requisitos</a> | 
- <a href="#-tecnologias">Tecnologias</a> |
+ <a href="#%EF%B8%8F-teste">Teste</a> | 
+ <a href="#-informações">Informações</a> | 
+ <a href="#-pré-requisitos">Pré-Requisitos</a> | 
+ <a href="#%EF%B8%8F-tecnologias">Tecnologias</a> |
  <a href="#-autor">Autor</a> |
 </p>
 
