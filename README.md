@@ -15,7 +15,7 @@
 <img src="https://img.shields.io/static/v1?label=Mocha&message=Testes&color=8D6748&style=for-the-badge&logo=Mocha"/> 
 <img src="https://img.shields.io/static/v1?label=Chai&message=Testes&color=A30701&style=for-the-badge&logo=Chai"/>
 <img src="https://img.shields.io/static/v1?label=MongoDB&message=DB&color=47A248&style=for-the-badge&logo=MongoDB"/>
-<img src="https://img.shields.io/static/v1?label=VSCode&message=Dev&color=007ACC&style=for-the-badge&logo=Visual Studio Code"/>
+<img src="https://img.shields.io/static/v1?label=VSCode&message=IDE&color=007ACC&style=for-the-badge&logo=Visual Studio Code"/>
 </h3>
 
 ---
